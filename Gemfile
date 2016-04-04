@@ -30,6 +30,10 @@ gem 'foundation-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'carrierwave'
+gem 'kaminari'
+gem 'devise'
+gem 'mail'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,5 +57,4 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'rspec-rails'
 end
