@@ -1,7 +1,10 @@
 require 'rails_helper'
 
+let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
+let title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
+let title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
+
 feature "As an user, I want to add an item, So that others can review it" do
-  let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
 
   scenario "User adds item successfully" do
     visit '/'
@@ -39,9 +42,7 @@ feature "As an user, I want to add an item, So that others can review it" do
 end
 
 feature "As a user, I want to view a list of items, So that I can pick items to review" do
-  let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
-  let title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
-  let title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
+
   scenario "user sees list of items" do
     visit '/'
     expect(page).to have_content("EastWillyB")
@@ -60,10 +61,6 @@ feature "As a user, I want to view a list of items, So that I can pick items to 
 end
 
 feature "As a user, I want to update an item's information, So that I can correct errors or provide new information" do
-
-  let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
-  let title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
-  let title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
 
   scenario "User successfully updates the link to the content" do
     visit '/'
@@ -97,9 +94,6 @@ feature "As a user, I want to update an item's information, So that I can correc
 end
 
 feature "As a user, I want to delete an item, So that no one can review it" do
-  let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
-  let title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
-  let title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
 
   scenario "User is the creator of the artwork and successfully deletes the artwork" do
     visit '/'
