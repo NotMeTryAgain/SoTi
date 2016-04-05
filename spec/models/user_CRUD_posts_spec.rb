@@ -1,8 +1,9 @@
 require 'rails_helper'
-
-let title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
-let title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
-let title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
+before :each do
+  title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
+  title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
+  title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
+end
 
 feature "As an user, I want to add an item, So that others can review it" do
 
