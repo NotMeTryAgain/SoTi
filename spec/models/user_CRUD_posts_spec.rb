@@ -6,11 +6,11 @@ feature "As an user, I want to add an item, So that others can review it" do
   scenario "User adds item successfully" do
     visit '/'
     click_button('Post a Series')
-    fill_in('Title' with: title_one.title)
-    fill_in('Media Type' with: title_one.media_type)
-    fill_in('Description' with: title_one.description)
-    fill_in('Link' with: title_one.link)
-    
+    fill_in('Title', with: title_one.title)
+    fill_in('Media Type', with: title_one.media_type)
+    fill_in('Description', with: title_one.description)
+    fill_in('Link', with: title_one.link)
+
     expect(page).to have_content('EastWillyB')
     expect(page).to have_content('Willie Jr.’s got his work cut out for him.')
   end
@@ -18,9 +18,9 @@ feature "As an user, I want to add an item, So that others can review it" do
   scenario "User adds item unsuccessfully" do
     visit '/'
     click_button('Post a Series')
-    fill_in('Title' with: title_one.title)
-    fill_in('Media Type' with: title_one.media_type)
-    fill_in('Description' with: title_one.description)
+    fill_in('Title', with: title_one.title)
+    fill_in('Media Type', with: title_one.media_type)
+    fill_in('Description', with: title_one.description)
 
     expect(page).to_not have('EastWillyB')
     expect(page).to_not have('Willie Jr.’s got his work cut out for him.')
@@ -29,9 +29,9 @@ feature "As an user, I want to add an item, So that others can review it" do
   scenario "User adds item unsuccessfully" do
     visit '/'
     click_button('Post a Series')
-    fill_in('Media Type' with: title_one.media_type)
-    fill_in('Description' with: title_one.description)
-    fill_in('Link' with: title_one.link)
+    fill_in('Media Type', with: title_one.media_type)
+    fill_in('Description', with: title_one.description)
+    fill_in('Link', with: title_one.link)
 
     expect(page).to_not have('http://www.eastwillyb.com/')
     expect(page).to_not have('Willie Jr.’s got his work cut out for him.')
@@ -69,7 +69,7 @@ feature "As a user, I want to update an item's information, So that I can correc
     visit '/'
     click_link('Ylse: A Web Series')
     click_button('Update')
-    fill_in('Link' with: "www.imdb.com/title/tt2261139")
+    fill_in('Link', with: "www.imdb.com/title/tt2261139")
     click_button('Save & Update')
 
     expect(page).to have_content("www.imdb.com/title/tt2261139/")
@@ -79,7 +79,7 @@ feature "As a user, I want to update an item's information, So that I can correc
     visit '/'
     click_link('Valley Meadows')
     click_button('Update')
-    fill_in('Title' with: "Valley Meadows Web Show")
+    fill_in('Title', with: "Valley Meadows Web Show")
     click_button('Save & Update')
 
     expect(page).to have_content("Valley Meadows Web Show")
@@ -89,7 +89,7 @@ feature "As a user, I want to update an item's information, So that I can correc
     visit '/'
     click_link('EastWillyB')
     click_button('Update')
-    fill_in('Description' with: "Culture clash with a new generation, on the Eastside")
+    fill_in('Description', with: "Culture clash with a new generation, on the Eastside")
     click_button('Save & Update')
 
     expect(page).to have_content("Culture clash with a new generation, on the Eastside")
