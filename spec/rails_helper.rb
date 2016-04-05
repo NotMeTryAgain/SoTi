@@ -9,6 +9,14 @@ require 'rspec/rails'
 require 'devise'
 require 'factory_girl_rails'
 require_relative 'support/factory_girl'
+# require_relative 'support/request_helpers.rb'
+
+RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

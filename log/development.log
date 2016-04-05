@@ -1325,3 +1325,157 @@ ORDER BY c.conname
   [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
   [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
   [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160404205349')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUsernameToUser (20160405165420)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "users" ADD "username" character varying NOT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160405165420"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/users/sign_up" for ::1 at 2016-04-05 13:02:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 676ms (Views: 634.0ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/users" for ::1 at 2016-04-05 13:02:23 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ztXonr7/w/6BwKzbWAu8MFsvD0cAsfR6sbEeTXSJIb8FsseqcDg7b6PsSjG6n77vAII0Qe7Pwa0aQukP7NQaw==", "user"=>{"username"=>"jennga", "email"=>"jennga@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: username
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jennga@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 181ms (Views: 83.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-04-05 13:11:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 667ms (Views: 636.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-04-05 13:11:23 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 81ms (Views: 80.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-04-05 13:11:30 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 101ms (Views: 98.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-05 14:17:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 630ms (Views: 623.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-04-05 14:17:08 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 119ms (Views: 105.8ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/users" for ::1 at 2016-04-05 14:17:40 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1nqQsvOsGySVz573N91cEUfUqztaqo6DsBEKwlCa4uzZVwwOIJcExtFHLWycVwwaOrof10ETdlTuvsUfWvuWAQ==", "user"=>{"username"=>"chumba", "email"=>"chumba@wumba.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'chumba@wumba.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "chumba@wumba.com"], ["encrypted_password", "$2a$10$zUeV37cXg7BH3U.UW6POdexemPdBanBrzjGm55GYN71q30Ssv4Ts."], ["username", "chumba"], ["created_at", "2016-04-05 18:17:40.172553"], ["updated_at", "2016-04-05 18:17:40.172553"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-04-05 18:17:40.176429"], ["current_sign_in_at", "2016-04-05 18:17:40.176429"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2016-04-05 18:17:40.177309"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 107ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2016-04-05 14:17:40 -0400
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 89ms (Views: 88.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-04-05 14:17:46 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cNX2gIHfXsYNCGXp2FyGw/JANqR/jKCPIC6wtqBL/FJ/+Go8UuRBJEmA1nJz1tbIjy6CSGQ1WFh+gX9rqiqIvw=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-04-05 14:17:46 -0400
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 69ms (Views: 69.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-04-05 14:17:47 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 92ms (Views: 91.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-04-05 14:18:10 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vs70azj8zSGzyHzWkeR7l70OkQRMlsIQ3GmiPMAeOvv8AMuesV7QqYvmEiN1kowNeGPf4z6pOLwB5NwOzfAbFA==", "user"=>{"email"=>"chumba@wumba.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "chumba@wumba.com"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2016-04-05 18:18:10.651990"], ["sign_in_count", 2], ["updated_at", "2016-04-05 18:18:10.653583"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-05 14:18:10 -0400
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-04-05 14:18:19 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sIZLc2ODEcap3ImNaoHPrtYEHJSJANjV6CkamiHmDCmJuDR4M6DjsZ2B7WHH0tBfWbKI4hAUUHplDfXeCplVCQ=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-04-05 14:18:19 -0400
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 76ms (Views: 76.2ms | ActiveRecord: 0.0ms)
