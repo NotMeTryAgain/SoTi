@@ -25,7 +25,6 @@ feature "user updates information" do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_on "Log in"
-  
     click_on "Update Information"
     fill_in "Email", with: ""
     fill_in "Current password", with: user.password
