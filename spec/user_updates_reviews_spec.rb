@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "authenticated user edits review" do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:post) = { FactoryGirl.create(:post) }
+  let!(:post) { FactoryGirl.create(:post) }
 
   scenario "successfully" do
     visit "/users/sign_in"

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "user views reviews of a web-series" do
-  let!(:post) = { FactoryGirl.create(:post_with_three_reviews) }
+  let!(:post) { FactoryGirl.create(:post_with_three_reviews) }
 
     scenario "views the reviews" do
       visit "/"
