@@ -30,6 +30,4 @@ feature "authenticated user edits review" do
     click_on post_with_reviews.webseries_name
     expect(page).to_not have_content "Edit Review"
   end
-
-
-  end
+end

@@ -18,16 +18,13 @@ feature "authenticated user adds review" do
     expect(page).to have_content(post.webseries_name)
     expect(page).to have_content("This show is amazing!!!!!!!")
     expect(page).to have_content("5")
-
   end
 
   scenario "unsuccessfully because they are not signed in" do
-
     click_on post.webseries_name
     choose "5"
     fill_in "Comments", with: "This show is amazing!!!!!!!"
     click_on "Add Review"
-
 
     expect(page).to have_content("Please sign in to leave a review!")
   end
@@ -41,7 +38,6 @@ feature "authenticated user adds review" do
     fill_in "Comments", with: "This show is amazing!!!!!!!"
     click_on "Add Review"
 
-
     expect(page).to have_content("Please select a rating")
   end
 
@@ -54,9 +50,6 @@ feature "authenticated user adds review" do
     choose "5"
     click_on "Add Review"
 
-
     expect(page).to have_content("Please provide some words!")
   end
-
-
 end

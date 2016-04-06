@@ -14,7 +14,7 @@ FactoryGirl.define do
 
     factory :post_with_three_reviews do
       after(:create) do |post|
-        3.times { FactoryGirl.create(:review, post: post)}
+        3.times { FactoryGirl.create(:review, post: post) }
       end
     end
   end
