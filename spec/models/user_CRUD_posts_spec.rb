@@ -1,5 +1,5 @@
 require 'rails_helper'
-before each do
+before (:each) do
   title_one = Post.create(title: "EastWillyB", media_type: "Video", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
   title_two = Post.create(title: "Ylse: A Web Series", media_type: "Video", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
   title_three = Post.create(title: "Valley Meadows", media_type: "Video", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
@@ -102,8 +102,5 @@ feature "As a user, I want to delete an item, So that no one can review it" do
     click_button('Delete')
 
     expect(page).to_not have_content('Ylse: A Web Series')
-  end
-
-  pending "User who is not the creator of the item tries to delete it" do
   end
 end
