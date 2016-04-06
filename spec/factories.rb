@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :post do
     sequence(:webseries_name) { |n| "Nana Goes to Prison#{n}" }
     link_to_trailer "https://www.youtube.com/watch?v=qVsNy032N6A"
-    description  "being a hipster in brooklyn"
+    description "being a hipster in brooklyn"
     link "https://www.youtube.com/channel/UCdwPnEk9AlUK5g6iDP0cYyA?nohtml5=False"
     user
 
@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :review do
     rating "5"
-    body  "Best thing I've ever laid eyes upon."
+    body "Best thing I've ever laid eyes upon."
     upvotes 10
     downvotes 2
     user
