@@ -11,6 +11,13 @@ require 'factory_girl_rails'
 require_relative 'support/factory_girl'
 
 RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+end
+
+RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 end
 
