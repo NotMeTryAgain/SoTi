@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe "posts model" do
   before(:each) do
-  @title_one = Post.create(webseries_name: "EastWillyB", link_to_trailer: "https://www.youtube.com/watch?v=lMg2Fv-8FsM", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
-  @title_two = Post.create(webseries_name: "Ylse: A Web Series", link_to_trailer: "https://www.youtube.com/watch?v=h205FN_fwWs", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
-  @title_three = Post.create(webseries_name: "Valley Meadows", link_to_trailer: "https://www.youtube.com/watch?v=TPoFCokBC5U", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
+    @title_one = Post.create(webseries_name: "EastWillyB", link_to_trailer: "https://www.youtube.com/watch?v=lMg2Fv-8FsM", description: "Willie Jr.’s got his work cut out for him.", link: "http://www.eastwillyb.com/")
+    @title_two = Post.create(webseries_name: "Ylse: A Web Series", link_to_trailer: "https://www.youtube.com/watch?v=h205FN_fwWs", description: "The Funniest TV show not on television", link: "http://www.ylse.net")
+    @title_three = Post.create(webseries_name: "Valley Meadows", link_to_trailer: "https://www.youtube.com/watch?v=TPoFCokBC5U", description: "Two dudes try to rap", link: "https://www.youtube.com/watch?v=q5R2Iy-5EUA")
   end
 
   feature "As a user, I want to add an item, So that others can review it" do
