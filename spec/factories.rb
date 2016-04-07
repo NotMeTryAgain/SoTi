@@ -22,8 +22,6 @@ FactoryGirl.define do
   factory :review do
     rating "5"
     body "Best thing I've ever laid eyes upon."
-    upvotes 10
-    downvotes 2
     user
   end
 end
