@@ -39,7 +39,6 @@ describe "posts model" do
       click_button('Post a Series')
       fill_in('Link to Trailer', with: @title_one.link_to_trailer)
       fill_in('Description', with: @title_one.description)
-
       fill_in("Link to Webseries", with: @title_one.link)
       click_button('Submit')
 
@@ -52,6 +51,7 @@ describe "posts model" do
 
     scenario "user sees list of items" do
       visit '/'
+
       expect(page).to have_content("EastWillyB")
       expect(page).to have_content("Ylse: A Web Series")
       expect(page).to have_content("Valley Meadows")
@@ -60,6 +60,7 @@ describe "posts model" do
     scenario "user sees detailed list of an item" do
       visit '/'
       click_link("Valley Meadows")
+
       expect(page).to have_content("Valley Meadows")
       expect(page).to have_content("Two dudes try to rap")
       expect(page).to have_content("https://www.youtube.com/watch?v=q5R2Iy-5EUA")
@@ -74,7 +75,6 @@ describe "posts model" do
       click_on('Update')
       fill_in("post_link", with: "www.imdb.com/title/tt2261139")
       click_button('Submit')
-
 
       expect(page).to have_content("www.imdb.com/title/tt2261139")
     end
