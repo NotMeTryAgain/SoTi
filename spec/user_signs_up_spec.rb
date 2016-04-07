@@ -3,6 +3,8 @@ require "rails_helper"
 feature "user signs up for account" do
   scenario "successfully" do
     visit "/users/sign_up"
+
+    fill_in "Username", with: "Sonic The Hedgehog"
     fill_in "Email", with: "sonic@hedgehog.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
@@ -13,6 +15,8 @@ feature "user signs up for account" do
 
   scenario "passwords don't match" do
     visit "/users/sign_up"
+
+    fill_in "Username", with: "Sonic The Hedgehog"
     fill_in "Email", with: "sonic@hedgehog.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "notpassword"
