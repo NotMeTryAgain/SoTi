@@ -1,0 +1,13 @@
+<h1><%= @post.webseries_name %></h1>
+
+<h3><%= @post.description %></h3>
+
+<h3>Link to Webseries</h3><%= @post.link %>
+
+<% if @post.link_to_trailer %>
+  <h3>Link to Trailer</h3>
+  <%= @post.link_to_trailer %>
+<% end %>
+<br />
+<%= link_to "Update", edit_post_path(@post) %>
+<%= link_to "Delete", post_path(@post), method: :delete %>

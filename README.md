@@ -6,4 +6,5 @@
 
 ![Coverage Status](https://coveralls.io/repos/pablo-honeybear/SoTi/badge.png)
 
+conflict
 merge!

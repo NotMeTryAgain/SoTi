@@ -1,1 +1,13 @@
-<h1>example</h1>
+<h1>Index of All Posts!</h1>
+<h2>Webseries'!</h2>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+    <%= link_to post.webseries_name, post_path(post) %>
+  </li>
+  <% end %>
+</ul>
+
+
+<%= button_to 'Post a Series', new_post_path, method: :get %>
