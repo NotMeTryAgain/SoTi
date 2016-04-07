@@ -5,3 +5,5 @@
 ![Code Climate](https://codeclimate.com/github/pablo-honeybear/SoTi.png)
 
 ![Coverage Status](https://coveralls.io/repos/pablo-honeybear/SoTi/badge.png)
+
+conflict
