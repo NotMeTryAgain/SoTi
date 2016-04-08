@@ -2,11 +2,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to post_path(@review.post)
     else
       flash[:error] = @review.errors.full_messages.join(", ")
-      redirect_to post_path(@review.post)
     end
+    redirect_to post_path(@review.post)
   end
 
   def destroy
