@@ -8,3 +8,16 @@
 
 conflict
 merge!
+
+Upvotes and Downvotes using AJAX
+  model uses a boolean to determine up or down.
+  the user can only have one 'vote' per review.
+  the user can click_on the 'vote' to change it to up or down.
+  the user can click_on a remove button to remove their vote. 
+finish Admin => devise
+finish Avatar => Carrierwave
+search =>
+Posts with Pagination => Kaminari
+Reviews with Pagination => Kaminari
+Search with Pagination => Kaminari
+Email with  => SendGrid
