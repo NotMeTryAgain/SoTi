@@ -15,13 +15,9 @@ RSpec.configure do |config|
   config.before :suite do
     Warden.test_mode!
   end
-end
 
-RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-end
 
-RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
 end
@@ -68,8 +64,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
+
 end
