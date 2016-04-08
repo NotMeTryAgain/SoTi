@@ -11,6 +11,6 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
-  validates_presence_of :rating, { message: "must be provided!" }
-  validates_uniqueness_of :user, { scope: :post }
+  validates_presence_of :rating, message: "must be provided!"
+  validates_uniqueness_of :user, scope: :post
 end
