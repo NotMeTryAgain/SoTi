@@ -9,7 +9,6 @@ feature "admin deletes a post" do
       login_as(admin)
       visit root_path
 
-      expect(current_path).to eq root_path
       expect(page).to have_content(post1.webseries_name)
       expect(page).to have_content(post2.webseries_name)
 

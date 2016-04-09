@@ -7,9 +7,8 @@ feature "admin deletes a user" do
 
   scenario "successfully deletes the user" do
       login_as(admin)
-      visit "/admin/users"
+      visit admin_users_path
 
-      expect(current_path).to eq admin_users_path
       expect(page).to have_content(user1.username)
       expect(page).to have_content(user1.email)
       expect(page).to have_content(user2.username)
