@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :review do
     rating "5"
-    body "Best thing I've ever laid eyes upon."
+    sequence(:body) { |n| "Best thing I've ever laid eyes upon#{n}." }
     user
   end
 end

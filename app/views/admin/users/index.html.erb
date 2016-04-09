@@ -5,6 +5,9 @@
     <tr>
       <td><strong>Username:</strong> <%= user.username %></td>
       <td><strong>Email:</strong> <%= user.email %></td>
+      <td><%= button_to 'Delete User', admin_destroy_user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

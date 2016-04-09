@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "posts#index"
+
+  devise_for :users
+  match 'users/:id' => 'users#destroy', via: :delete, as: :admin_destroy_user
+  resources :users
 
   resources :posts do
     resources :reviews, only: [:create, :edit, :update, :destroy]

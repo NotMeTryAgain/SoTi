@@ -5,6 +5,11 @@
   <% @posts.each do |post| %>
   <li>
     <%= link_to post.webseries_name, post_path(post) %>
+    <% if current_user.try(:admin?) %>
+      <%= button_to 'Delete Post', post_path(post),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </li>
   <% end %>
 </ul>
