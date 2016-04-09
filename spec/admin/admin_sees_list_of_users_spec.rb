@@ -12,9 +12,17 @@ feature "admin sees list of users" do
   scenario "admin visits users index" do
     login_as(admin)
     visit '/admin/users'
-    save_and_open_page
 
+    expect(current_path).to eq(admin_users_path)
     expect(page).to have_content(user1.username)
     expect(page).to have_content(user2.username)
+
+  end
+
+  scenario "unauthorized users are redirected" do
+    login_as(user1)
+    visit '/admin/users'
+    expect(page).to have_content('not authorized')
+    expect(current_path).to eq(root_path)
   end
 end
