@@ -31,6 +31,14 @@
       <dd>Rating: <%=review.rating  %></dd>
       <dd>Review: <%=review.body  %></dd>
     <% end %>
+    <% if user_signed_in %>
+      <div class="vote-block" id="vote-for-<%= review.id %>" >
+        <span><%= button_to "Upvote", "#", class = 'upvote_button' %> </span>
+        <span> Upvote Total: <%= review.upvote_total%></span>
+        <span><%= button_to "Downvote", "#", class = 'downvote_button' %> </span>
+        <span> Downvote Total: <%= review.downvote_total%></span>
+      </div>
+    <% end %>
   <br><br>
 <% end %>
 </dl>
