@@ -9,4 +9,6 @@ class User < ActiveRecord::Base # :nodoc:
   mount_uploader :avatar, AvatarUploader
   has_many :posts
   has_many :reviews
+  has_many :votes
+  
 end

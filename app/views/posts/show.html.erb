@@ -16,6 +16,13 @@
   <%= button_to "Delete Post", post_path(@post), method: :delete %>
 <% end %>
 
+<% if !user_signed_in? %>
+  <p>
+    Please sign in to write a review.
+    Please sign in to vote on a review.
+  </p>
+<% end %>
+
 <dl>
 <% @reviews.each do |review| %>
   <dt><%=review.user.username %> says:</dt>
@@ -31,12 +38,12 @@
       <dd>Rating: <%=review.rating  %></dd>
       <dd>Review: <%=review.body  %></dd>
     <% end %>
-    <% if user_signed_in %>
+    <% if user_signed_in? %>
       <div class="vote-block" id="vote-for-<%= review.id %>" >
-        <span><%= button_to "Upvote", "#", class = 'upvote_button' %> </span>
-        <span> Upvote Total: <%= review.upvote_total%></span>
-        <span><%= button_to "Downvote", "#", class = 'downvote_button' %> </span>
-        <span> Downvote Total: <%= review.downvote_total%></span>
+        <span><%= button_to "Upvote", upvote_review_votes_path(review), class: 'upvote_button' %> </span>
+        <span> Upvotes: <%= review.upvote_total%></span>
+        <span><%= button_to "Downvote", downvote_review_votes_path(review), class: 'downvote_button' %> </span>
+        <span> Downvotes: <%= review.downvote_total%></span>
       </div>
     <% end %>
   <br><br>
@@ -44,17 +51,15 @@
 </dl>
 
 <% @check = nil %>
-<% Review.all.each do |review| %>
+<% @reviews.each do |review| %>
   <% if review.user == current_user %>
-  <% @check = true %>
+    <% @check = true %>
   <% end %>
 <% end %>
-<% if user_signed_in? && @check %>
-<% elsif !user_signed_in? %>
-  <p>
-    Please sign in to write a review.
-  </p>
-<% else %>
+
+
+
+<% if user_signed_in? && !@check %>
   <%= render "review_form" %>
 <% end %>
 
