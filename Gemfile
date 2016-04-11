@@ -21,7 +21,10 @@ gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'foundation-rails'
-
+# for aws cloud storage
+gem 'fog'
+# photo resizing
+gem "mini_magick"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,6 +37,8 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'devise'
 gem 'mail'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
