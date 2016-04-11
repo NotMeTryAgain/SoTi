@@ -21,9 +21,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @reviews = Review.all
-    @rating_options = Review.ratings
     @post = Post.find(params[:id])
+    @reviews = @post.reviews
+    @rating_options = Review.ratings
     @review = Review.new
   end
 

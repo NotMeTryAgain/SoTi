@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "michaelbluth#{n}@hotmail.com" }
     password "password"
-    username "nbluth"
+    sequence(:username) { |n| "nbluth#{n}" }
   end
 
   factory :post do
@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :review do
     rating "5"
-    body "Best thing I've ever laid eyes upon."
+    sequence(:body) { |n| "Best thing I've ever laid eyes upon#{n}." }
     user
   end
 end

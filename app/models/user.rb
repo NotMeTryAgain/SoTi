@@ -9,4 +9,8 @@ class User < ActiveRecord::Base # :nodoc:
   mount_uploader :avatar, AvatarUploader
   has_many :posts
   has_many :reviews
+
+  def admin?
+    role == "admin"
+  end
 end
