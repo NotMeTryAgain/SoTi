@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @reviews = @post.reviews
+    @reviews = @post.reviews.order(created_at: :desc).page(params[:page]).per(10)
     @rating_options = Review.ratings
     @review = Review.new
   end

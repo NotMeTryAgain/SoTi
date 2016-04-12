@@ -21,5 +21,32 @@ describe "user views items" do
       expect(page).to have_content post1.description
       expect(page).to have_content post1.link
     end
+
+    scenario "user sees 5 most recent posts" do
+      post4 = FactoryGirl.create(:post)
+      post5 = FactoryGirl.create(:post)
+      post6 = FactoryGirl.create(:post)
+
+      visit '/'
+
+      expect(page).to_not have_content post1.webseries_name
+      expect(page).to have_content post2.webseries_name
+      expect(page).to have_content post3.webseries_name
+      expect(page).to have_content post4.webseries_name
+      expect(page).to have_content post5.webseries_name
+      expect(page).to have_content post6.webseries_name
+    end
+
+    scenario "user sees 5 most recent posts" do
+      post4 = FactoryGirl.create(:post)
+      post5 = FactoryGirl.create(:post)
+      post6 = FactoryGirl.create(:post)
+
+      visit '/'
+      click_on 'Next'
+
+      expect(page).to have_content post1.webseries_name
+      expect(page).to_not have_content post2.webseries_name
+    end
   end
 end

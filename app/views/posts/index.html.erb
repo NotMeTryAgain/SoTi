@@ -1,6 +1,8 @@
 <h1>Index of All Posts!</h1>
 <h2>Webseries'!</h2>
 
+<%= paginate @posts %>
+
 <ul>
   <% @posts.each do |post| %>
   <li>

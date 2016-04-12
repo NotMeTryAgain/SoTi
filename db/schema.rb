@@ -11,24 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409185700) do
+ActiveRecord::Schema.define(version: 20160412154055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.string  "webseries_name",  null: false
-    t.string  "link",            null: false
-    t.text    "description",     null: false
-    t.string  "link_to_trailer"
-    t.integer "user_id",         null: false
+    t.string   "webseries_name",  null: false
+    t.string   "link",            null: false
+    t.text     "description",     null: false
+    t.string   "link_to_trailer"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
-    t.integer "rating",  null: false
-    t.text    "body"
+    t.integer  "post_id",    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "rating",     null: false
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "reviews", ["post_id", "user_id"], name: "index_reviews_on_post_id_and_user_id", unique: true, using: :btree

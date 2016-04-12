@@ -17,6 +17,12 @@ FactoryGirl.define do
         3.times { FactoryGirl.create(:review, post: post) }
       end
     end
+
+    factory :post_with_twenty_reviews do
+      after(:create) do |post|
+        20.times { FactoryGirl.create(:review, post: post) }
+      end
+    end
   end
 
   factory :review do
