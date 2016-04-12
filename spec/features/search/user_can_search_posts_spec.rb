@@ -6,8 +6,9 @@ feature "user can search webseries by the webseries name" do
   let!(:post3) { FactoryGirl.create(:post_with_three_reviews, webseries_name: "Pop-pop goes to prison") }
 
   scenario "user sees a list of webseries that match their search query" do
-    visit "/"
-    fill_in "search", with: "Nana"
+    visit '/'
+    # save_and_open_page
+    fill_in "search", with: 'Nana'
     click_on "Search"
 
     expect(page).to have_content post1.webseries_name
