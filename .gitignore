@@ -12,5 +12,7 @@
 !/log/.keep
 /tmp
 /coverage
+
 app/assets/images/test_avatar.png
+
 /.env

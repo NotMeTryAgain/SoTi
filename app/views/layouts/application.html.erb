@@ -14,12 +14,12 @@
   <body>
     <% if user_signed_in? %>
       <% if current_user.avatar.url.present? %>
-        <div id=user_avatar>
-          <%= image_tag(current_user.avatar.small_avatar) %>
+       <div id=user_avatar>
+         <%= image_tag(current_user.avatar.small_avatar) %>
         </div>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         <%= link_to "Update Information", edit_user_registration_path %>
-      <% elsif %>
+     <% elsif %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         <%= link_to "Update Information", edit_user_registration_path %>
         <% if current_user.admin? %>
@@ -42,7 +42,7 @@
     <% end %>
   </div>
 
-  <%= yield %>
+    <%= yield %>
 
   </body>
 </html>
