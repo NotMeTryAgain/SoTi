@@ -16,6 +16,7 @@
   <%= button_to "Delete Post", post_path(@post), method: :delete %>
 <% end %>
 
+<%= paginate @reviews %>
 <dl>
 <% @reviews.each do |review| %>
   <dt><%=review.user.username %> says:</dt>
