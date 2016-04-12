@@ -12,4 +12,8 @@ class User < ActiveRecord::Base # :nodoc:
 
   has_many :posts
   has_many :reviews
+
+  def admin?
+    role == "admin"
+  end
 end

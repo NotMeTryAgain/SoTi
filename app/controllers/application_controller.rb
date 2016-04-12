@@ -8,5 +8,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email,       :password, :password_confirmation, :current_password, :avatar, :avatar_cache) }
   end
 
+  def authorize_admin!
+    if current_user.nil? || !current_user.admin?
+      flash[:notice] = "You are not authorized to view this resource"
+      redirect_to root_path
+    end
+  end
   protect_from_forgery with: :exception
 end
