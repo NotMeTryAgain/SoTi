@@ -13,17 +13,16 @@ feature "user signs up for account with avatar" do
     attach_file 'user_avatar', File.join(Rails.root + 'app/assets/images/test_avatar.png')
 
     click_on "Sign up"
-    save_and_open_page
     expect(page).to have_content "Welcome! You have signed up successfully."
     within('div#user_avatar') do
-     expect(page).to have_xpath('//img')
-      end
+      expect(page).to have_xpath('//img')
     end
   end
+end
 
-  feature "user signs up for account without avatar" do
-    scenario "successfully" do
-      visit "/users/sign_up"
+feature "user signs up for account without avatar" do
+  scenario "successfully" do
+    visit "/users/sign_up"
 
       fill_in "Username", with: "Sonic The Hedgehog"
       fill_in "Email", with: "sonic@hedgehog.com"
@@ -33,8 +32,9 @@ feature "user signs up for account with avatar" do
       click_on "Sign up"
       expect(page).to have_content "Welcome! You have signed up successfully."
       within('div#user_avatar') do
-      end
+        expect(page).to have_xpath('//img')
     end
+  end
 
   scenario "passwords don't match" do
     visit "/users/sign_up"
