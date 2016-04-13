@@ -1,13 +1,19 @@
 <h1>Index of All Posts!</h1>
 <h2>Webseries'!</h2>
 
+<%= paginate @posts %>
+
 <ul>
   <% @posts.each do |post| %>
   <li>
     <%= link_to post.webseries_name, post_path(post) %>
+    <% if current_user.try(:admin?) %>
+      <%= button_to 'Delete Post', post_path(post),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </li>
   <% end %>
 </ul>
-
 
 <%= button_to 'Post a Series', new_post_path, method: :get %>

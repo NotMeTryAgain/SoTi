@@ -12,6 +12,5 @@ feature "user deletes account" do
 
     expect(page).to have_content "Bye! Your account has been successfully
     cancelled. We hope to see you again soon."
-
   end
 end

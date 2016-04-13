@@ -23,13 +23,15 @@
   </p>
 <% end %>
 
+<%= paginate @reviews %>
+
 <dl>
 <% @reviews.each do |review| %>
   <dt><%=review.user.username %> says:</dt>
   <% if review.user == current_user && session[:edit] %>
       <% @review = review %>
       <%= render "review_form" %>
-    <% elsif review.user == current_user %>
+    <% elsif review.user == current_user || current_user.try(:admin?) %>
       <dd>Rating: <%=review.rating  %></dd>
       <dd>Review: <%=review.body  %></dd>
       <%= button_to "Edit Review", edit_post_review_path(@post, review), method: :get %>

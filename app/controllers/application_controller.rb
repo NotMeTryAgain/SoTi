@@ -4,9 +4,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:username]
-    devise_parameter_sanitizer.for(:account_update) << :username
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :avatar, :avatar_cache) }
   end
 
+  def authorize_admin!
+    if current_user.nil? || !current_user.admin?
+      flash[:notice] = "You are not authorized to view this resource"
+      redirect_to root_path
+    end
+  end
   protect_from_forgery with: :exception
 end
