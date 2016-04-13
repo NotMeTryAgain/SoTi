@@ -15,4 +15,36 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation()
+  $('input#uvote').on('click', function(event) {
+    event.preventDefault();
+    var url = $(this).parent().attr('action');
+    var uvTotal = $(this).parent().parent().find('.uvTotal');
+    var dvTotal = $(this).parent().parent().find('.dvTotal');
+    $.ajax({
+      type: 'POST',
+      url: url,
+      dataType: 'json',
+      success: function(response) {
+        uvTotal.text(response.uvTotal);
+        dvTotal.text(response.dvTotal);
+      }
+    });
+  });
+
+  $('input#dvote').on('click', function(event) {
+    event.preventDefault();
+    var url = $(this).parent().attr('action');
+    var uvTotal = $(this).parent().parent().find('.uvTotal');
+    var dvTotal = $(this).parent().parent().find('.dvTotal');
+    $.ajax({
+      type: 'POST',
+      url: url,
+      dataType: 'json',
+      success: function(response) {
+        uvTotal.text(response.uvTotal);
+        dvTotal.text(response.dvTotal);
+      }
+    });
+  });
+});

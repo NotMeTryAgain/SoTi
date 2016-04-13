@@ -39,11 +39,11 @@
       <dd>Review: <%=review.body  %></dd>
     <% end %>
     <% if user_signed_in? %>
-      <div class="vote-block" id="vote-for-<%= review.id %>" >
-        <span><%= button_to "Upvote", upvote_review_votes_path(review), class: 'upvote_button' %> </span>
-        <span> Upvotes: <%= review.upvote_total%></span>
-        <span><%= button_to "Downvote", downvote_review_votes_path(review), class: 'downvote_button' %> </span>
-        <span> Downvotes: <%= review.downvote_total%></span>
+      <div class="vote-block" id="<%= review.id %>" >
+          <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote' %>
+          Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
+          <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote' %>
+          Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
       </div>
     <% end %>
   <br><br>
