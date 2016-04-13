@@ -1,5 +1,4 @@
 class Review < ActiveRecord::Base
-
   def self.ratings
     [
       [1, "1 (Hated It!)"],

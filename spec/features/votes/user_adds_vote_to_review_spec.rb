@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "user can add vote to a review" do
 
   let!(:user1) { FactoryGirl.create(:user) }
