@@ -7,7 +7,6 @@ feature "user can search webseries by the webseries name" do
 
   scenario "user sees a list of webseries that match their search query" do
     visit '/'
-    
     fill_in "search", with: 'Nana'
     click_on "Search"
 
@@ -15,5 +14,4 @@ feature "user can search webseries by the webseries name" do
     expect(page).to have_content post2.webseries_name
     expect(page).to_not have_content post3.webseries_name
   end
-
 end
