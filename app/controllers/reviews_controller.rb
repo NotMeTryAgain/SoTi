@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
+      flash[:success] = "Review has been successfully created!"
+      ReviewMailer.new_review(@review).deliver_later
     else
       flash[:error] = @review.errors.full_messages.join(", ")
     end
