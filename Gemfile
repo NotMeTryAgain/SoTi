@@ -19,11 +19,16 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'rubocop', '~> 0.39.0', require: false
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'foundation-rails'
-
+# for aws cloud storage
+gem 'fog'
+# photo resizing
+gem "mini_magick"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -36,6 +41,8 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'devise'
 gem 'mail'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

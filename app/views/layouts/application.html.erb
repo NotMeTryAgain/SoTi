@@ -13,6 +13,27 @@
 
   <body>
 
+    <% if user_signed_in? %>
+      <% if current_user.avatar.url.present? %>
+       <div id=user_avatar>
+         <%= image_tag(current_user.avatar.small_avatar) %>
+        </div>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Update Information", edit_user_registration_path %>
+     <% elsif %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Update Information", edit_user_registration_path %>
+        <% if current_user.admin? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Update Information", edit_user_registration_path %>
+          <%= link_to "Admin Section", admin_users_path %>
+          <%= link_to "Root", root_path %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
 
     <nav class="top-bar">
       <div class="top-bar-left">
@@ -49,26 +70,21 @@
       </div>
     </nav>
 
-    <div>
-      <% flash.each do |name, msg| %>
-        <% if msg.is_a?(String) %>
-          <%= content_tag :div, msg, :class => "flash_#{name}" %>
-        <% end %>
+  <div>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <%= content_tag :div, msg, :class => "flash_#{name}" %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
-
-
-
-
-        <div class="small-10 columns small-centered">
-          <%= yield %>
-        </div>
-
-        <%= javascript_include_tag "application" %>
-
-      </div>
-    </div>
+  <div class="small-10 columns small-centered">
+    <%= yield %>
+  </div>
+  
+  <%= javascript_include_tag "application" %>
+  </div>
+</div>
 
   </body>
 </html>
