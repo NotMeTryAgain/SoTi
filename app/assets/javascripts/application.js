@@ -15,7 +15,7 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation()
+$(function(){ $(document).foundation();
   $('input#uvote').on('click', function(event) {
     event.preventDefault();
     var url = $(this).parent().attr('action');
