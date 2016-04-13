@@ -7,7 +7,7 @@ feature "user can search webseries by the webseries name" do
 
   scenario "user sees a list of webseries that match their search query" do
     visit '/'
-    # save_and_open_page
+    
     fill_in "search", with: 'Nana'
     click_on "Search"
 
