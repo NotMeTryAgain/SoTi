@@ -36,6 +36,4 @@ feature "authenticated user adds review" do
     expect(page).to have_content("Rating must be provided!")
     expect(page).to_not have_content("This show is amazing!!!!!!!")
   end
-
-
 end
