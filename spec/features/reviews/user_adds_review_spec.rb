@@ -5,6 +5,7 @@ feature "authenticated user adds review" do
   let!(:post) { FactoryGirl.create(:post) }
 
   scenario "logged in user can successfully add a review" do
+    ActionMailer::Base.deliveries.clear
     login_as_user(user)
     click_on post.webseries_name
     choose "5"
@@ -15,6 +16,8 @@ feature "authenticated user adds review" do
     expect(page).to have_content(post.webseries_name)
     expect(page).to have_content("This show is amazing!!!!!!!")
     expect(page).to have_content("5")
+    expect(page).to have_content("Review has been successfully created!")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "unsuccessfully because they are not signed in" do
@@ -33,5 +36,4 @@ feature "authenticated user adds review" do
     expect(page).to have_content("Rating must be provided!")
     expect(page).to_not have_content("This show is amazing!!!!!!!")
   end
-
 end
