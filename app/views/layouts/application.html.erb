@@ -12,6 +12,7 @@
   </head>
 
   <body>
+
     <% if user_signed_in? %>
       <% if current_user.avatar.url.present? %>
        <div id=user_avatar>
@@ -34,6 +35,41 @@
       <%= link_to "Sign Up", new_user_registration_path %>
     <% end %>
 
+    <nav class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="has-form">
+            <div class="row collapse">
+              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+              <div class="large-8 small-9 columns">
+                <%= text_field_tag :search, params[:search], placeholder: "Search Web Series" %>
+              </div>
+              <div class="large-4 small-3 columns">
+                <%= submit_tag "Search", :name => nil %>
+              </div>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="menu">
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Update Information", edit_user_registration_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to "Admin Section", admin_users_path %></li>
+              <li><%= link_to "Root", root_path %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
   <div>
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
@@ -42,7 +78,13 @@
     <% end %>
   </div>
 
+  <div class="small-10 columns small-centered">
     <%= yield %>
+  </div>
+  
+  <%= javascript_include_tag "application" %>
+  </div>
+</div>
 
   </body>
 </html>
