@@ -26,7 +26,7 @@ $secondary-color: #e5c32e;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 a {
-text-decoration: none;
+  text-decoration: none;
 
 &:hover {
  text-decoration: none;
@@ -34,5 +34,5 @@ text-decoration: none;
 }
 
 tr {
-background-color: $secondary-color;
+  background-color: $secondary-color;
 }
