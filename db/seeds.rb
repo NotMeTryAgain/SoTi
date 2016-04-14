@@ -1,3 +1,5 @@
+require 'factory_girl_rails'
+
 5.times do
   FactoryGirl.create(:user, avatar: Faker::Avatar.image("my-own-slug", "50x50"))
 end

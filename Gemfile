@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
+gem 'factory_girl_rails'
 gem 'faker'
 gem 'selenium-webdriver'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
