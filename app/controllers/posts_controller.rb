@@ -63,8 +63,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :webseries_name,
       :link,
-      :description,
-      :link_to_trailer,
+      :description
     )
   end
 end
