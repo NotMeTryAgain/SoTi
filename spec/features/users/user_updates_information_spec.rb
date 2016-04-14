@@ -15,7 +15,6 @@ feature "user updates information" do
     click_button "Update"
 
     expect(page).to have_content "Your account has been updated successfully."
-
   end
 
   scenario "fails" do
@@ -33,5 +32,5 @@ feature "user updates information" do
     expect(page).to have_content "Email can't be blank"
     expect(page).to have_link "Sign Out"
   end
-
+  
 end
