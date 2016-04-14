@@ -29,7 +29,7 @@ $(function(){ $(document).foundation();
       success: function(response) {
         uvTotal.text(response.uvTotal);
         dvTotal.text(response.dvTotal);
-        unVoteButton.show()
+        unVoteButton.show();
       }
     });
   });
@@ -47,7 +47,7 @@ $(function(){ $(document).foundation();
       success: function(response) {
         uvTotal.text(response.uvTotal);
         dvTotal.text(response.dvTotal);
-        unVoteButton.show()
+        unVoteButton.show();
       }
     });
   });
@@ -65,7 +65,7 @@ $(function(){ $(document).foundation();
       success: function(response) {
         uvTotal.text(response.uvTotal);
         dvTotal.text(response.dvTotal);
-        unVoteButton.hide()
+        unVoteButton.hide();
       }
     });
   });
