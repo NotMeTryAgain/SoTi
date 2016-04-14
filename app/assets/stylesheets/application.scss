@@ -15,7 +15,7 @@
 *= require foundation_and_overrides
 */
 @import "foundation_and_overrides";
-@import "_settings";
+@import "settings";
 @import "custom";
 
 @include foundation-button;
@@ -24,8 +24,9 @@ $main-color: #96c49a;
 $secondary-color: #e5c32e;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-a {
+a{
   text-decoration: none;
+
   &:hover {
     text-decoration: none;
   }
