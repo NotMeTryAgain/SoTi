@@ -1,16 +1,8 @@
-<h1>Edit Details</h1>
-<%= form_for(@post) do |f| %>
-  <%= f.label :webseries_name, "Title" %><br>
-  <%= f.text_field :webseries_name %>
-  <br>
-  <%= f.label :link, "Link to Webseries" %><br>
-  <%= f.text_field :link %>
-  <br>
-  <%= f.label :link_to_trailer, "Link to Trailer" %><br>
-  <%= f.text_field :link_to_trailer %>
-  <br>
-  <%= f.label :description, "Description" %><br>
-  <%= f.text_field :description %>
-  <br>
-  <%= f.submit 'Submit' %>
-<% end %>
+<h1><%= @post.webseries_name %>Edit Details</h1>
+ <%= render "form" %>
+
+ <br />
+ 
+ <div id="footer">
+ <%= button_to "Posts Index", posts_path %>
+ </div>

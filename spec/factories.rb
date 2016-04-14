@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :video do
+    link "MyString"
+    title "MyString"
+    author "MyString"
+    duration "MyString"
+  end
   factory :user do
     sequence(:email) { |n| "michaelbluth#{n}@hotmail.com" }
     password "password"
