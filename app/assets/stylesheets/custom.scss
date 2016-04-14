@@ -1,4 +1,14 @@
 html {
   background-image: image-url("film-set.jpg");
+  background-repeat:no-repeat;
+  background-position: center center;
   background-size: cover;
+  background-attachment:fixed;
 };
+
+.top-bar {
+  .menu a {
+      color: green;
+      background-color: white;
+  }
+}
