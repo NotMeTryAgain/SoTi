@@ -12,8 +12,13 @@ class User < ActiveRecord::Base # :nodoc:
 
   has_many :posts
   has_many :reviews
+  has_many :votes
 
   def admin?
     role == "admin"
+  end
+
+  def voted?(id)
+    votes.where(review_id: id).exists?
   end
 end
