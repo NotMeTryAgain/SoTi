@@ -21,6 +21,7 @@ $(function(){ $(document).foundation();
     var url = $(this).parent().attr('action');
     var uvTotal = $(this).parent().parent().find('.uvTotal');
     var dvTotal = $(this).parent().parent().find('.dvTotal');
+    var unVoteButton = $(this).parent().parent().find('input#unvote');
     $.ajax({
       type: 'POST',
       url: url,
@@ -28,6 +29,7 @@ $(function(){ $(document).foundation();
       success: function(response) {
         uvTotal.text(response.uvTotal);
         dvTotal.text(response.dvTotal);
+        unVoteButton.show()
       }
     });
   });
@@ -37,6 +39,7 @@ $(function(){ $(document).foundation();
     var url = $(this).parent().attr('action');
     var uvTotal = $(this).parent().parent().find('.uvTotal');
     var dvTotal = $(this).parent().parent().find('.dvTotal');
+    var unVoteButton = $(this).parent().parent().find('input#unvote');
     $.ajax({
       type: 'POST',
       url: url,
@@ -44,6 +47,25 @@ $(function(){ $(document).foundation();
       success: function(response) {
         uvTotal.text(response.uvTotal);
         dvTotal.text(response.dvTotal);
+        unVoteButton.show()
+      }
+    });
+  });
+
+  $('input#unvote').on('click', function(event) {
+    event.preventDefault();
+    var url = $(this).parent().attr('action');
+    var uvTotal = $(this).parent().parent().find('.uvTotal');
+    var dvTotal = $(this).parent().parent().find('.dvTotal');
+    var unVoteButton = $(this).parent().parent().find('input#unvote');
+    $.ajax({
+      type: 'DELETE',
+      url: url,
+      dataType: 'json',
+      success: function(response) {
+        uvTotal.text(response.uvTotal);
+        dvTotal.text(response.dvTotal);
+        unVoteButton.hide()
       }
     });
   });

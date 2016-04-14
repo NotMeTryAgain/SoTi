@@ -17,4 +17,8 @@ class User < ActiveRecord::Base # :nodoc:
   def admin?
     role == "admin"
   end
+
+  def voted?(id)
+    votes.where(review_id: id).exists?
+  end
 end

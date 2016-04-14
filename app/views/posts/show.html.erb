@@ -42,10 +42,15 @@
     <% end %>
     <% if user_signed_in? %>
       <div class="vote-block" id="<%= review.id %>" >
-          <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote' %>
-          Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
-          <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote' %>
-          Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
+        <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote' %>
+        Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
+        <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote' %>
+        Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
+        <% if current_user.voted?(review.id) %>
+          <%= button_to "UnVote", unvote_review_votes_path(review), id: 'unvote' %>
+        <% else %>
+          <%= button_to "UnVote", unvote_review_votes_path(review), id: 'unvote', hidden: 'true' %>
+        <% end %>
       </div>
     <% end %>
   <br><br>

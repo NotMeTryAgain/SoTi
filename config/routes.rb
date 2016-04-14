@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       collection do
         post 'upvote'
         post 'downvote'
+        delete 'unvote'
       end
     end
   end
