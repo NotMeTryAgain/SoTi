@@ -11,7 +11,7 @@ feature "user can add vote to a review" do
 
     click_on post1.webseries_name
     click_on "Upvote"
-
+    
     expect(page).to have_content("Upvotes: 1")
     expect(page).to have_content("Downvotes: 0")
   end
