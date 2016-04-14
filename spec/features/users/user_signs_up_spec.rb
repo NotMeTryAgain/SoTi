@@ -10,7 +10,7 @@ feature "user signs up for account with avatar" do
     fill_in "Email", with: "sonic@hedgehog.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
-    attach_file 'user_avatar', File.join(Rails.root + 'app/assets/images/test_avatar.png')
+    attach_file 'user_avatar', File.join(Rails.root + 'app/assets/images/default_avatar.png')
 
     click_on "Sign up"
     expect(page).to have_content "Welcome! You have signed up successfully."
