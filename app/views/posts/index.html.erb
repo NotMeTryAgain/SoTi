@@ -9,6 +9,9 @@
     <tr>
       <th width="150">Table Header</th>
       <th width="200">Description</th>
+      <% if current_user.try(:admin?) %>
+        <th width="200">Delete?</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +20,11 @@
           <td><%= link_to post.webseries_name, post_path(post) %></td>
           <td><%= post.description %></td>
           <% if current_user.try(:admin?) %>
-            <%= button_to 'Delete Post', post_path(post),
+            <td>
+              <%= button_to 'Delete Post', post_path(post),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
+            </td>
           <% end %>
         </tr>
       <% end %>

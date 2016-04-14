@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
   def index
     if params[:search]
-      @posts = Post.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
+      @posts = Post.search(params[:search]).order("created_at DESC").page(params[:page]).per(20)
     else
-      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(5)
+      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(20)
     end
   end
 
