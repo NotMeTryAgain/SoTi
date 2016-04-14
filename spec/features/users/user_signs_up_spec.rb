@@ -18,7 +18,6 @@ feature "user signs up for account with avatar" do
       expect(page).to have_xpath('//img')
     end
   end
-end
 
   scenario "passwords don't match" do
     visit "/users/sign_up"

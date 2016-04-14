@@ -19,7 +19,6 @@ describe "user views items" do
 
       expect(page).to have_content post1.webseries_name
       expect(page).to have_content post1.description
-      expect(page).to have_content post1.link
     end
 
     scenario "user sees 5 most recent posts" do

@@ -13,7 +13,6 @@ FactoryGirl.define do
 
   factory :post do
     sequence(:webseries_name) { |n| "Nana Goes to Prison#{n}" }
-    link_to_trailer "https://www.youtube.com/watch?v=qVsNy032N6A"
     description "being a hipster in brooklyn"
     link "https://www.youtube.com/channel/UCdwPnEk9AlUK5g6iDP0cYyA?nohtml5=False"
     user
