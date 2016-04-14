@@ -5,7 +5,7 @@ end
 FactoryGirl.create(:user, username: "pablo-admin", role: "admin", email: "pablo@honeybear.com")
 
 5.times do
-  FactoryGirl.create(:post, webseries_name: Faker::Hipster.sentence(3), user: User.first, description: Faker::Hipster.paragraph(2), link: "https://www.youtube.com/watch?v=YQHsXMglC9A", link_to_trailer: "https://www.youtube.com/watch?v=TkV-of_eN2w")
+  FactoryGirl.create(:post, webseries_name: Faker::Hipster.sentence(3), user: User.first, description: Faker::Hipster.paragraph(2), link: "https://www.youtube.com/watch?v=YQHsXMglC9A")
   FactoryGirl.create(:post_with_three_reviews, webseries_name: Faker::Hipster.sentence(3))
 end
 
