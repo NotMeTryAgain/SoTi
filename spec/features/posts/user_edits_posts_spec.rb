@@ -8,11 +8,10 @@ describe "User edits items" do
     scenario "Creator of post can edit their post" do
       login_as_user(post1.user)
       click_on post1.webseries_name
-      click_on('Update')
-      fill_in("post_link", with: "www.imdb.com/title/tt2261139")
+      click_on('Update this Post')
+      fill_in("Title", with: "Brand New")
       click_button('Submit')
-
-      expect(page).to have_content("www.imdb.com/title/tt2261139")
+      expect(page).to have_content("Brand New")
     end
 
     scenario "Unauthorized but logged in user cannot update a post" do
@@ -20,7 +19,7 @@ describe "User edits items" do
       login_as_user(user2)
       click_on post1.webseries_name
 
-      expect(page).to_not have_button("Update")
+      expect(page).to_not have_button("Update this Post")
     end
   end
 end
