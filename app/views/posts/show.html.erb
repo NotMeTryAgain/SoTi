@@ -1,20 +1,16 @@
-<%= link_to "Posts Index", posts_path %>
-
-<h1><%= @post.webseries_name %></h1>
-
-<h1><%= @post.description %></h1>
-
-<h1>Link to Webseries</h1><%= @post.link %>
-
-<% if @post.link_to_trailer %>
-  <h3>Link to Trailer</h3>
-  <%= @post.link_to_trailer %>
-<% end %>
 <br />
-<% if current_user == @post.user %>
-  <%= button_to "Update", edit_post_path(@post), method: :get %>
-  <%= button_to "Delete Post", post_path(@post), method: :delete %>
-<% end %>
+<%= button_to 'Back to Index', posts_path, method: :get %>
+
+<div id="webseries_video_embed" style="text-align: center">
+  <h1><b><%= @post.webseries_name %></b></h1>
+  <br />
+  <%= webseries_video @post.link %>
+  <%= button_to "Visit series channel", @post.link %>
+</div>
+
+<br />
+
+<h4><%= @post.description %></h4>
 
 <% if !user_signed_in? %>
   <p>
@@ -71,3 +67,24 @@
 <% end %>
 
 <% session[:edit] = nil %>
+
+<br />
+
+<% if current_user == @post.user %>
+  <table>
+    <tr>
+      <th>
+        <%= button_to "Update this Post", edit_post_path(@post), method: :get %>
+      </th>
+      <th>
+        <%= button_to "Delete this Post", post_path(@post), method: :delete %>
+      </th>
+      <th>
+        <%= button_to 'Post an Episode', new_post_path, method: :get %>
+      </th>
+      <th>
+        <%= button_to 'Back to Index', posts_path, method: :get %>
+      </th>
+    </tr>
+  </table>
+<% end %>
