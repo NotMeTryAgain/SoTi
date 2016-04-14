@@ -14,7 +14,6 @@
 *= require_self
 *= require foundation_and_overrides
 */
-
 @import "foundation_and_overrides";
 @import "_settings";
 @import "custom";
@@ -29,7 +28,7 @@ a {
   text-decoration: none;
 
   &:hover {
-   text-decoration: none;
+    text-decoration: none;
   }
 }
 
