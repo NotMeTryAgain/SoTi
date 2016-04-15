@@ -19,6 +19,7 @@ Our group used this project to test a number of web based technologies listed in
 - Devise (Ruby Gem)
 - Carrierwave (Ruby Gem)
 
+
 We also implemented a number of course concepts in the development of our website.
 - Object-oriented programming
 - Object Relation Mapping
