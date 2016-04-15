@@ -1,12 +1,17 @@
-<h1>Webseries Index!!</h1>
+<div style="text-align: center">
+  <h1><b>We Are State of the Indie!</b></h1>
+  <h4>Destination for web-series' of all genres produced by independent artists.</h4>
+  <h4><span><b>Sign up</b></span> and post your favorite series, make reviews, up or down vote, comment on listed reviews and share links to the <span><u>best series'</u></span> on the web!</h4>
+</div>
+
+<br />
 
 <%= paginate @posts %>
 
-
 <table>
   <thead>
-    <tr>
-      <th width="150">Table Header</th>
+    <tr style="font-weight: 500;">
+      <th width="150">Series Title</th>
       <th width="200">Description</th>
       <% if current_user.try(:admin?) %>
         <th width="200">Delete?</th>
@@ -16,7 +21,7 @@
   <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= link_to post.webseries_name, post_path(post) %></td>
+          <td style="font-weight: 800;"><%= link_to post.webseries_name, post_path(post) %></td>
           <td><%= post.description %></td>
           <% if current_user.try(:admin?) %>
             <td>

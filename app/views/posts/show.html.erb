@@ -71,7 +71,7 @@
 <br />
 
 <% if current_user == @post.user %>
-  <div id="post_buttons">
+  <div id="post_buttons" style="position: relative; top: 50%; transform: translateY(-50%);" >
     <table>
       <tr>
         <th>
@@ -81,7 +81,7 @@
           <%= button_to "Delete this Post", post_path(@post), method: :delete %>
         </th>
         <th>
-          <%= button_to 'Post an Episode', new_post_path, method: :get %>
+          <%= button_to 'Post an Series', new_post_path, method: :get %>
         </th>
         <th>
           <%= button_to 'Back to Index', posts_path, method: :get %>
