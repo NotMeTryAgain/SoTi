@@ -19,7 +19,8 @@ The SoTi app implements these features:
  - Pagination (with Kaminari).
 
 Our group used this project to test a number of web based technologies listed in no particular order.
-- Ruby on Rails
+- Ruby 2.2.3
+- Rails 4.2.6
 - HTML
 - CSS
 - Foundations
@@ -36,7 +37,7 @@ We also implemented a number of course concepts in the development of our websit
 - User Authentication
 
 Project authors: 
-- Jen Eng
+- Jenn Eng
 - Eric Darsey
 - Candace Hazlett
 - Mike Hebert
