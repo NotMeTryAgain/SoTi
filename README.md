@@ -16,7 +16,6 @@ The SoTi app implements these features:
  - An ability to upload a profile photo (with CarrierWave).
  - The ability to search for items.
  - An admin role. Admins are able to delete reviews or items if they are deemed to be inappropriate.
- - An email is sent to the owner of an item when a new review is posted about it.
  - Pagination (with Kaminari).
 
 Our group used this project to test a number of web based technologies listed in no particular order.
