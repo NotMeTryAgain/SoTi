@@ -50,8 +50,8 @@
       </div>
     <% else %>
       <div class="vote-block" id="<%= review.id %>" >
-        Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
-        Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
+        Upvotes: <%= review.upvote_total%>
+        Downvotes: <%= review.downvote_total%>
       </div>
     <% end %>
   <br><br>
