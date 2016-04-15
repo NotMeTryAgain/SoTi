@@ -39,9 +39,9 @@
     <% if user_signed_in? %>
       <div class="vote-block" id="<%= review.id %>" >
         <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote', class: "tiny alert button expand" %>
-        Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
+        Upvotes: <div class=uvTotal><%= review.upvote_total %></div>
         <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote', class: "tiny alert button expand" %>
-        Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
+        Downvotes: <div class=dvTotal><%= review.downvote_total %></div>
         <% if current_user.voted?(review.id) %>
           <%= button_to "UnVote", unvote_review_votes_path(review), id: 'unvote' %>
         <% else %>
