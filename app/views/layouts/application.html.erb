@@ -35,19 +35,13 @@
         <ul class="menu">
           <% if user_signed_in? %>
             <% if current_user.avatar.url.present? %>
-             <div class="small-3 columns" id=user_avatar>
-               <%= image_tag(current_user.avatar.small_avatar) %>
-              </div>
+              <li class="has-form" id="user_avatar"><%= image_tag(current_user.avatar.small_avatar) %></li>
             <% end %>
-            <div class="small-9 columns">
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-
-
-              <li><%= link_to "Update Information", edit_user_registration_path %></li>
-            </div>
+            <li class="has-form"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li class="has-form"><%= link_to "Update Information", edit_user_registration_path %></li>
             <% if current_user.admin? %>
-              <li><%= link_to "Admin Section", admin_users_path %></li>
-              <li><%= link_to "Root", root_path %></li>
+              <li class="has-form"><%= link_to "Admin Section", admin_users_path %></li>
+              <li class="has-form"><%= link_to "Root", root_path %></li>
             <% end %>
           <% else %>
             <li><%= link_to "Sign In", new_user_session_path %></li>

@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20160412154055) do
     t.string   "webseries_name",  null: false
     t.string   "link",            null: false
     t.text     "description",     null: false
-    t.string   "link_to_trailer"
     t.integer  "user_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
