@@ -14,23 +14,23 @@
   <body>
 
     <nav class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="has-form">
-            <div class="row collapse">
-              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-              <div class="large-8 small-9 columns">
-                <%= text_field_tag :search, params[:search], placeholder: "Search Web Series" %>
-              </div>
-              <div class="large-4 small-3 columns">
-                <%= submit_tag "Search", :name => nil %>
-              </div>
-              <% end %>
-            </div>
-          </li>
-        </ul>
-      </div>
-
+          <div class="top-bar-left">
+            <ul class="menu">
+              <li class="has-form">
+                <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <div class="row collapse">
+                  <div class="small-9 columns">
+                    <%= text_field_tag :search, params[:search], placeholder: "Search Web Series" %>
+                  </div>
+                  <div class="small-3 columns">
+                    <%= submit_tag "Search", :name => nil,  class: "alert button expand" %>
+                  </div>
+                  <% end %>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
       <div class="top-bar-right">
         <ul class="menu">
           <% if user_signed_in? %>
