@@ -12,9 +12,18 @@ User.create(username: "pablo", role: "admin", email: "pablo@honeybear.com", pass
 end
 
 Post.all.each do |post|
-  20.times do
-    User.all.each do |user|
-      Review.create(post: post, body: Faker::Hipster.paragraph(2), rating: (rand(4) + 1), user: user)
+  User.all.each do |user|
+    Review.create(post: post, body: Faker::Hipster.paragraph(2), rating: (rand(4) + 1), user: user)
+  end
+end
+
+Post.all.each do |post|
+  post.reviews.each do |review|
+    5.times do |i|
+      Vote.create(user: User.all.sample, upvote: true, review: review)
+    end
+    2.times do |i|
+      Vote.create(user: User.all.sample, upvote: false, review: review)
     end
   end
 end

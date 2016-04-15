@@ -14,7 +14,7 @@ feature "user signs up for account with avatar" do
 
     click_on "Sign up"
     expect(page).to have_content "Welcome! You have signed up successfully."
-    within('div#user_avatar') do
+    within('li#user_avatar') do
       expect(page).to have_xpath('//img')
     end
   end
