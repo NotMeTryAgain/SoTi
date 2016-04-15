@@ -1,11 +1,11 @@
 <br />
-<%= button_to 'Back to Index', posts_path, method: :get %>
+<%= button_to 'Back to Index', posts_path, method: :get, class: "alert button expand" %>
 
 <div id="webseries_video_embed" style="text-align: center">
   <h1><b><%= @post.webseries_name %></b></h1>
   <br />
   <%= webseries_video @post.link %>
-  <%= button_to "Visit series channel", @post.link %>
+  <%= button_to "Visit series channel", @post.link, class: "alert button expand" %>
 </div>
 
 <br />
@@ -30,17 +30,17 @@
     <% elsif review.user == current_user || current_user.try(:admin?) %>
       <dd>Rating: <%=review.rating  %></dd>
       <dd>Review: <%=review.body  %></dd>
-      <%= button_to "Edit Review", edit_post_review_path(@post, review), method: :get %>
-      <%= button_to "Delete Review", post_review_path(@post, review), method: :delete %>
+      <%= button_to "Edit Review", edit_post_review_path(@post, review), method: :get, class: "small alert button expand" %>
+      <%= button_to "Delete Review", post_review_path(@post, review), method: :delete, class: "small alert button expand" %>
     <% else %>
       <dd>Rating: <%=review.rating  %></dd>
       <dd>Review: <%=review.body  %></dd>
     <% end %>
     <% if user_signed_in? %>
       <div class="vote-block" id="<%= review.id %>" >
-        <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote' %>
+        <%= button_to "Upvote", upvote_review_votes_path(review), id: 'uvote', class: "tiny alert button expand" %>
         Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
-        <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote' %>
+        <%= button_to "Downvote", downvote_review_votes_path(review), id: 'dvote', class: "tiny alert button expand" %>
         Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
         <% if current_user.voted?(review.id) %>
           <%= button_to "UnVote", unvote_review_votes_path(review), id: 'unvote' %>

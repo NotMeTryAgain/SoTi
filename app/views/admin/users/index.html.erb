@@ -14,7 +14,7 @@
       <td><%= user.email %></td>
       <td><%= button_to 'Delete User', admin_destroy_user_path(user),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' }, class: "alert button expand" %></td>
     </tr>
   <% end %>
 </table>
