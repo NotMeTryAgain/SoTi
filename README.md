@@ -35,6 +35,7 @@ We also implemented a number of course concepts in the development of our websit
 - Object Relation Mapping
 - Model-View-Controller design
 - User Authentication
+- TDD (Capybara)
 
 Project authors: 
 - Jenn Eng
