@@ -7,12 +7,13 @@ html {
 };
 
 .top-bar {
-  .menu a {
-    color: green;
-    background-color: white;
-  }
+  background-color: black;
 }
 
 #interior {
   background-color:rgba(225, 225, 225, 0.75)
+}
+
+#search {
+  margin: 0;
 }
