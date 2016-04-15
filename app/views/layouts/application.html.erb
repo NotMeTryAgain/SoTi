@@ -3,16 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "SoTi" %></title>
-
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
     <nav class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
@@ -30,15 +27,14 @@
           </li>
         </ul>
       </div>
-
       <div class="top-bar-right">
         <ul class="menu">
           <% if user_signed_in? %>
-            <% if current_user.avatar.url.present? %>
-              <li class="has-form" id="user_avatar"><%= image_tag(current_user.avatar.small_avatar) %></li>
-            <% end %>
-            <li class="has-form"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% if current_user.avatar.url.present? %>
+          <li class="has-form" id="user_avatar"><%= image_tag(current_user.avatar.small_avatar) %></li>
+          <% end %>
             <li class="has-form"><%= link_to "Update Information", edit_user_registration_path %></li>
+            <li class="has-form"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% if current_user.admin? %>
               <li class="has-form"><%= link_to "Admin Section", admin_users_path %></li>
               <li class="has-form"><%= link_to "Root", root_path %></li>
@@ -50,7 +46,6 @@
         </ul>
       </div>
     </nav>
-
   <div>
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
@@ -58,14 +53,11 @@
       <% end %>
     <% end %>
   </div>
-
     <div class="small-10 columns small-centered" id="interior">
       <%= yield %>
     </div>
-
   <%= javascript_include_tag "application" %>
   </div>
 </div>
-
   </body>
 </html>
