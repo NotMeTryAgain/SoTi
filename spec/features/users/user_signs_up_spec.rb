@@ -10,13 +10,9 @@ feature "user signs up for account with avatar" do
     fill_in "Email", with: "sonic@hedgehog.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
-    # attach_file 'user_avatar', File.join(Rails.root + 'app/assets/images/default_avatar.png')
 
     click_on "Sign up"
     expect(page).to have_content "Welcome! You have signed up successfully."
-    # within('li#user_avatar') do
-      # expect(page).to have_xpath('//img')
-    # end
   end
 
   scenario "passwords don't match" do
