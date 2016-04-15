@@ -48,6 +48,11 @@
           <%= button_to "UnVote", unvote_review_votes_path(review), id: 'unvote', hidden: 'true' %>
         <% end %>
       </div>
+    <% else %>
+      <div class="vote-block" id="<%= review.id %>" >
+        Upvotes: <div class=uvTotal><%= review.upvote_total%></div>
+        Downvotes: <div class=dvTotal><%= review.downvote_total%></div>
+      </div>
     <% end %>
   <br><br>
 <% end %>
