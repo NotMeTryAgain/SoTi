@@ -10,9 +10,9 @@ class User < ActiveRecord::Base # :nodoc:
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts
-  has_many :reviews
-  has_many :votes
+  has_many :posts, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def admin?
     role == "admin"

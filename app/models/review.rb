@@ -9,9 +9,9 @@ class Review < ActiveRecord::Base
     ]
   end
 
-  belongs_to :user
-  belongs_to :post
-  has_many :votes
+  belongs_to :user, dependent: :destroy
+  belongs_to :post, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   validates_presence_of :rating, message: "must be provided!"
   validates_uniqueness_of :user, scope: :post
