@@ -4,9 +4,7 @@
 
 @include foundation-button;
 
-$main-color: #96c49a;
-$secondary-color: #e5c32e;
-$font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 
 a {
   text-decoration: none;
@@ -17,5 +15,5 @@ a {
 }
 
 tr {
-  background-color: $secondary-color;
+  background-color:rgba(225, 225, 225, 0.75);
 }
